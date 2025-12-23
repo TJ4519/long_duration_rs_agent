@@ -1,0 +1,15 @@
+{
+  "description": "Minimal output schema placeholder.",
+  "properties": {
+    "summary": {
+      "description": "Human-readable summary output.",
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "summary"
+  ],
+  "title": "ResearchOutput",
+  "type": "object"
+}
