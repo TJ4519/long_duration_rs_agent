@@ -1,75 +1,31 @@
-# Review Map — Finger‑Tippy Review (You Can't Read Everything)
+# Review Map — Finger‑Tippy Review (Contract-First)
 
 ## 1) The rule
-You review *contracts and safety*, not every line of implementation.
+You review contracts and verification artifacts, not implementation code.
 
-If contracts are correct and tests cover behavior, you can merge confidently.
+If contracts are correct and verification passes, you can merge confidently.
 
-## 2) Must-Review Artifacts (High leverage, low volume)
-### A) Database migrations (always read)
-- db/migrations/*.sql
-Review for:
-- correct keys/indexes
-- provenance fields exist (chunk spans, artifact pointers)
-- evidence ledger tables exist
+## 2) Canonical review surface (read fully)
+- review/PR_<NN>_REVIEW_BUNDLE.md
+- contracts/openapi.json
+- contracts/output_schema.json
+- contracts/prompts_manifest.json
+- contracts/migrations_summary.md
 
-### B) Schemas (read fully)
-- app/schemas/*.py
-Review for:
-- Plan schema prevents unsafe actions
-- Evidence requires citations
-- Context Manifest includes selected chunk IDs
+## 3) Merge Gates (what must be true before merging)
+Gate 1: Review bundle exists and follows the template.
+Gate 2: Contract exports are updated and committed.
+Gate 3: Verification transcript includes PASS results for required commands.
+Gate 4: Ops memory (STATUS + TASK_LOG) updated for the PR.
 
-### C) Compiler assembly order + constraints injection (read fully)
-- app/compiler/assemble.py
-- app/compiler/manifest.py
-Review for:
-- stable prompt order
-- override constraints rendered safely
-- low-score fallback logic correct
+## 4) The 10-minute PR review checklist
+- [ ] Read review/PR_<NN>_REVIEW_BUNDLE.md
+- [ ] Inspect contract diffs in contracts/
+- [ ] Verify ops updates in ops/STATUS.md and ops/TASK_LOG.md
+- [ ] Run verification commands listed in the review bundle
 
-### D) Artifact Manager boundaries (read fully)
-- app/artifacts/manager.py
-Review for:
-- streaming behavior (no full reads into RAM)
-- idempotency via content hash
-- no raw blobs in DB
-
-### E) Compaction validation rules (read fully)
-- app/memory/compaction.py
-Review for:
-- invariants copied verbatim
-- summary unit tests implemented
-- claims cannot be "verified" without evidence
-
-## 3) Skim-Review Artifacts (Medium leverage)
-- app/compiler/retrieval.py (skim: query building)
-- app/compiler/rerank.py (skim: batching + caching)
-- scripts/* (skim)
-
-## 4) Trust-to-Tests Artifacts (Low leverage)
-- formatting, logging glue, minor utilities
-- endpoint wiring in api.py (unless auth/security)
-
-## 5) Merge Gates (what must be true before merging)
-Gate 1: Schema validation passes for Plan and Outputs.
-Gate 2: Every verified claim has evidence with provenance fields.
-Gate 3: Context Manifest is written every step.
-Gate 4: Artifact ingestion is idempotent and pointer-only.
-Gate 5: Compaction does not mutate invariants.
-
-## 6) The 10-minute PR review checklist
-- [ ] Read PR summary
-- [ ] Read migrations
-- [ ] Read schema diffs
-- [ ] Read compiler assemble/manifest diff
-- [ ] Read artifact manager diff
-- [ ] Read compaction validation diff
-- [ ] Run tests + demo command
-- [ ] Confirm output JSON includes citations and manifest refs
-
-## 7) Stop conditions (do NOT merge if)
-- any raw blob is stored in DB
-- narrative summary adds “verified” claims without evidence
-- compiler can proceed when retrieval returns nothing without an explicit constraint
-- overrides are free-text prompt rewrites instead of typed constraints
+## 5) Stop conditions (do NOT merge if)
+- review bundle missing or deviates from template
+- contracts/ missing required exports
+- verification transcript missing PASS snippets
+- ops memory not updated
