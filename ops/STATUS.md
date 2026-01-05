@@ -7,3 +7,4 @@
 - Added contract generation tooling and review bundle for contract-based review.
 - Added artifact manager with content-hash idempotency and tests.
 - Added embeddings CRUD helpers for pgvector-ready storage.
+- Added reranker stub with cache and tests.
