@@ -8,3 +8,4 @@
 - Added artifact manager with content-hash idempotency and tests.
 - Added embeddings CRUD helpers for pgvector-ready storage.
 - Added reranker stub with cache and tests.
+- Added context manifest builder and tests.
