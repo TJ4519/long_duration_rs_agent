@@ -6,3 +6,4 @@
 - 2025-09-27: Added chunking pipeline with offsets and overlap handling.
 - 2025-09-27: Added contract generation tooling, contract exports, and review bundle template.
 - 2025-09-27: Added artifact manager with idempotent content-hash storage.
+- 2025-09-27: Added embeddings CRUD helpers for pgvector storage.
