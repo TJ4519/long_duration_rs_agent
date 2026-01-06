@@ -12,3 +12,4 @@
 - Added typed event definitions and orchestrator emission.
 - Added evidence ledger helpers and schemas.
 - Added dual-track compaction validation and tests.
+- Added strategic override constraints with expiry.
