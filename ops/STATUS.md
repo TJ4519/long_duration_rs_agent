@@ -13,3 +13,4 @@
 - Added evidence ledger helpers and schemas.
 - Added dual-track compaction validation and tests.
 - Added strategic override constraints with expiry.
+- Added demo CLI and eval harness.

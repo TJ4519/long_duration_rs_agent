@@ -13,3 +13,4 @@
 - 2025-09-27: Added evidence ledger helpers and schemas.
 - 2025-09-27: Added compaction validation helpers and tests.
 - 2025-09-27: Added strategic override constraints and expiry handling.
+- 2025-09-27: Added demo CLI and eval harness.
