@@ -11,3 +11,4 @@
 - 2025-09-27: Added context manifest builder and tests.
 - 2025-09-27: Added typed events and orchestrator event emission.
 - 2025-09-27: Added evidence ledger helpers and schemas.
+- 2025-09-27: Added compaction validation helpers and tests.
