@@ -9,3 +9,4 @@
 - 2025-09-27: Added embeddings CRUD helpers for pgvector storage.
 - 2025-09-27: Added reranker cache stub and tests.
 - 2025-09-27: Added context manifest builder and tests.
+- 2025-09-27: Added typed events and orchestrator event emission.
