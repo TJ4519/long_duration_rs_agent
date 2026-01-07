@@ -1,10 +1,11 @@
 # PR 12 Review Bundle
 
 ## 1) Executive Summary (5–10 lines)
-This PR adds a demo CLI runner and an evaluation harness.
-The demo script writes a small JSON output for a given objective.
-The eval script compares a candidate output to a golden file.
-Unit tests validate demo output creation and eval passing.
+This PR adds a demo CLI and evaluation harness.
+The demo script writes a stub output payload for a given objective.
+The eval script compares output to a golden file and emits metrics.
+A golden JSON fixture is added for baseline evaluation.
+Unit tests cover demo output generation and evaluation metrics emission.
 Contracts are unchanged; this is CLI tooling only.
 Ops status and task log are updated for PR12.
 
