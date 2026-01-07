@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a demo objective and emit a stub output payload."""
+"""Demo CLI runner."""
 
 from __future__ import annotations
 
@@ -9,25 +9,22 @@ from pathlib import Path
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run a demo Alexandria objective")
-    parser.add_argument("--objective", required=True, help="Objective to execute")
-    parser.add_argument(
-        "--output",
-        default="outputs/demo_run.json",
-        help="Output JSON path",
-    )
+    parser = argparse.ArgumentParser(description="Project Alexandria demo run")
+    parser.add_argument("--objective", required=True, help="Objective to run")
+    parser.add_argument("--output", default="outputs/demo_output.json")
     args = parser.parse_args()
-
-    output = {
-        "objective": args.objective,
-        "status": "stub",
-        "findings": [],
-        "citations": [],
-    }
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n")
+
+    payload = {
+        "objective": args.objective,
+        "status": "ok",
+        "notes": "demo output placeholder",
+    }
+    output_path.write_text(json.dumps(payload, indent=2) + "\n")
+
+    print(f"Wrote demo output to {output_path}")
 
 
 if __name__ == "__main__":

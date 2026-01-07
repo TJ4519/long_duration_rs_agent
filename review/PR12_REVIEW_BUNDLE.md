@@ -31,20 +31,20 @@ Ops status and task log are updated for PR12.
 
 ## 3) Verification Transcript (exact commands + PASS snippets)
 - `python scripts/generate_contracts.py` → PASS (no output; contracts generated).
-- `pytest -q` → PASS (18 passed, 2 skipped in 0.35s).
+- `pytest -q` → PASS (19 passed, 2 skipped in 0.35s).
 
 ## 4) Behavioral Guarantees (what’s now enforced)
-- Invariants guaranteed by tests: demo output written; eval metrics emitted.
+- Invariants guaranteed by tests: demo output is generated; eval passes when outputs match.
 - New stop rules / budgets: none.
-- New fallback behavior: eval exits non-zero on objective mismatch.
+- New fallback behavior: none.
 
 ## 5) Risk Notes (Top 3)
-- Risk 1: Demo output is stubbed and may be mistaken for real results (medium).
-- Risk 2: Eval checks only objective match ( conformity is shallow ) (low).
-- Risk 3: Output paths overwrite existing files if reused (low).
+- Risk 1: Demo output is stubbed and not tied to real pipeline (medium).
+- Risk 2: Eval compares strict JSON equality only (low).
+- Risk 3: Demo output path can overwrite files if misused (low).
 
 ## 6) Rollback Plan
-Revert the PR commit(s) and delete scripts/demo_run.py, scripts/eval.py, eval/golden.json, and tests/test_demo_cli.py.
+Revert the PR commit(s) and delete scripts/demo_run.py, scripts/eval.py, and tests/test_demo_scripts.py.
 
 ## 7) What I (human) should review (max 3 items)
 - contracts/openapi.json for unchanged API surface.
