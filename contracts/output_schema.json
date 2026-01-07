@@ -1,15 +1,6 @@
 {
-  "description": "Minimal output schema placeholder.",
-  "properties": {
-    "summary": {
-      "description": "Human-readable summary output.",
-      "title": "Summary",
-      "type": "string"
-    }
-  },
-  "required": [
-    "summary"
-  ],
+  "properties": {},
   "title": "ResearchOutput",
-  "type": "object"
+  "type": "object",
+  "warning": "pydantic is not installed; schema export is stubbed"
 }

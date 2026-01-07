@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from .memory import Event, EventType
+
 
 class StepPhase(str, Enum):
     COMPILE = "COMPILE"
@@ -40,4 +42,14 @@ class Orchestrator:
                 step_id=self._state.step_id,
                 phase=next_phase,
             )
+        )
+
+    def emit_event(self, payload: dict[str, object]) -> Event:
+        """Create a typed event for the current phase."""
+        event_type = EventType(self._state.phase.value)
+        return Event(
+            run_id=self._state.run_id,
+            step_id=self._state.step_id,
+            event_type=event_type,
+            payload=payload,
         )

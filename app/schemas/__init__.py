@@ -1,5 +1,6 @@
 """Schema exports."""
 
-from .output import ResearchOutput
+from .evidence import ClaimRecord, EvidenceRecord
+from .outputs import ResearchOutput
 
-__all__ = ["ResearchOutput"]
+__all__ = ["ResearchOutput", "EvidenceRecord", "ClaimRecord"]

@@ -1,92 +1,102 @@
-"""Generate reviewable contract artifacts."""
+#!/usr/bin/env python3
+"""Generate contract artifacts for review."""
 
 from __future__ import annotations
 
 import hashlib
 import importlib.util
 import json
-import sys
 from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(BASE_DIR))
-
-CONTRACTS_DIR = BASE_DIR / "contracts"
-PROMPTS_DIR = BASE_DIR / "prompts"
-MIGRATIONS_DIR = BASE_DIR / "db" / "migrations"
+import sys
+from typing import Iterable
 
 
-def _write_json(path: Path, payload: object) -> None:
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+CONTRACTS_DIR = ROOT / "contracts"
+PROMPTS_DIR = ROOT / "prompts"
+MIGRATIONS_DIR = ROOT / "db" / "migrations"
 
 
-def _hash_text(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+def _hash_file(path: Path) -> str:
+    hasher = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(8192), b""):
+            hasher.update(chunk)
+    return hasher.hexdigest()
 
 
-def export_openapi() -> None:
+def _iter_prompt_files() -> Iterable[Path]:
+    if not PROMPTS_DIR.exists():
+        return []
+    return [path for path in PROMPTS_DIR.rglob("*") if path.is_file()]
+
+
+def write_openapi() -> None:
     if importlib.util.find_spec("fastapi") is None:
-        _write_json(
-            CONTRACTS_DIR / "openapi.json",
-            {
-                "openapi": "3.0.0",
-                "info": {
-                    "title": "Project Alexandria",
-                    "version": "0.0.0",
-                    "description": "FastAPI not installed; stub OpenAPI exported.",
-                },
-                "paths": {},
-            },
+        openapi = {
+            "openapi": "3.0.0",
+            "info": {"title": "Project Alexandria", "version": "0.0.0"},
+            "paths": {},
+            "warning": "fastapi is not installed; openapi export is stubbed",
+        }
+        (CONTRACTS_DIR / "openapi.json").write_text(
+            json.dumps(openapi, indent=2, sort_keys=True)
         )
         return
 
     from app.main import create_app
 
     app = create_app()
-    _write_json(CONTRACTS_DIR / "openapi.json", app.openapi())
+    openapi = app.openapi()
+    (CONTRACTS_DIR / "openapi.json").write_text(
+        json.dumps(openapi, indent=2, sort_keys=True)
+    )
 
 
-def export_output_schema() -> None:
-    if importlib.util.find_spec("pydantic") is None:
-        _write_json(
-            CONTRACTS_DIR / "output_schema.json",
+def write_prompts_manifest() -> None:
+    prompts = []
+    for path in sorted(_iter_prompt_files()):
+        prompts.append(
             {
-                "title": "ResearchOutput",
-                "description": "Pydantic not installed; stub output schema exported.",
-                "type": "object",
-                "properties": {"summary": {"type": "string"}},
-                "required": ["summary"],
-            },
+                "path": str(path.relative_to(ROOT)),
+                "sha256": _hash_file(path),
+            }
+        )
+    (CONTRACTS_DIR / "prompts_manifest.json").write_text(
+        json.dumps({"prompts": prompts}, indent=2, sort_keys=True)
+    )
+
+
+def write_output_schema() -> None:
+    if importlib.util.find_spec("pydantic") is None:
+        schema = {
+            "title": "ResearchOutput",
+            "type": "object",
+            "properties": {},
+            "warning": "pydantic is not installed; schema export is stubbed",
+        }
+        (CONTRACTS_DIR / "output_schema.json").write_text(
+            json.dumps(schema, indent=2, sort_keys=True)
         )
         return
 
-    from app.schemas import ResearchOutput
+    from app.schemas.outputs import ResearchOutput
 
     schema = ResearchOutput.model_json_schema()
-    _write_json(CONTRACTS_DIR / "output_schema.json", schema)
+    (CONTRACTS_DIR / "output_schema.json").write_text(
+        json.dumps(schema, indent=2, sort_keys=True)
+    )
 
 
-def export_prompts_manifest() -> None:
-    prompts = []
-    if PROMPTS_DIR.exists():
-        for path in sorted(PROMPTS_DIR.rglob("*.md")):
-            content = path.read_text()
-            prompts.append(
-                {
-                    "path": str(path.relative_to(BASE_DIR)),
-                    "sha256": _hash_text(content),
-                }
-            )
-    _write_json(CONTRACTS_DIR / "prompts_manifest.json", prompts)
-
-
-def export_migrations_summary() -> None:
+def write_migrations_summary() -> None:
     lines = ["# Migrations Summary", ""]
     if MIGRATIONS_DIR.exists():
         for path in sorted(MIGRATIONS_DIR.glob("*.sql")):
-            content = path.read_text()
-            checksum = _hash_text(content)
-            lines.append(f"- {path.name}: {checksum}")
+            content = path.read_text().splitlines()
+            preview = content[0] if content else "(empty)"
+            lines.append(f"- {path.name}: {preview}")
     else:
         lines.append("- No migrations directory found.")
     (CONTRACTS_DIR / "migrations_summary.md").write_text("\n".join(lines) + "\n")
@@ -94,10 +104,10 @@ def export_migrations_summary() -> None:
 
 def main() -> None:
     CONTRACTS_DIR.mkdir(parents=True, exist_ok=True)
-    export_openapi()
-    export_output_schema()
-    export_prompts_manifest()
-    export_migrations_summary()
+    write_openapi()
+    write_prompts_manifest()
+    write_output_schema()
+    write_migrations_summary()
 
 
 if __name__ == "__main__":

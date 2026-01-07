@@ -1,11 +1,11 @@
-# Review Map — Finger‑Tippy Review (Contract-First)
+# Review Map — Finger‑Tippy Review (You Can't Read Everything)
 
 ## 1) The rule
-You review contracts and verification artifacts, not implementation code.
+You review *contracts and safety*, not every line of implementation.
 
-If contracts are correct and verification passes, you can merge confidently.
+If contracts are correct and tests cover behavior, you can merge confidently.
 
-## 2) Canonical review surface (read fully)
+## 2) Canonical review surface (read fully every PR)
 - review/PR_<NN>_REVIEW_BUNDLE.md
 - contracts/openapi.json
 - contracts/output_schema.json
@@ -13,19 +13,20 @@ If contracts are correct and verification passes, you can merge confidently.
 - contracts/migrations_summary.md
 
 ## 3) Merge Gates (what must be true before merging)
-Gate 1: Review bundle exists and follows the template.
-Gate 2: Contract exports are updated and committed.
-Gate 3: Verification transcript includes PASS results for required commands.
-Gate 4: Ops memory (STATUS + TASK_LOG) updated for the PR.
+Gate 1: Schema validation passes for Plan and Outputs.
+Gate 2: Every verified claim has evidence with provenance fields.
+Gate 3: Context Manifest is written every step.
+Gate 4: Artifact ingestion is idempotent and pointer-only.
+Gate 5: Compaction does not mutate invariants.
 
 ## 4) The 10-minute PR review checklist
-- [ ] Read review/PR_<NN>_REVIEW_BUNDLE.md
-- [ ] Inspect contract diffs in contracts/
-- [ ] Verify ops updates in ops/STATUS.md and ops/TASK_LOG.md
+- [ ] Read PR review bundle
+- [ ] Read contracts outputs (openapi, output schema, prompts, migrations summary)
 - [ ] Run verification commands listed in the review bundle
+- [ ] Confirm output JSON includes citations and manifest refs
 
 ## 5) Stop conditions (do NOT merge if)
-- review bundle missing or deviates from template
-- contracts/ missing required exports
-- verification transcript missing PASS snippets
-- ops memory not updated
+- any raw blob is stored in DB
+- narrative summary adds “verified” claims without evidence
+- compiler can proceed when retrieval returns nothing without an explicit constraint
+- overrides are free-text prompt rewrites instead of typed constraints
