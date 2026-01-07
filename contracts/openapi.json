@@ -1,0 +1,9 @@
+{
+  "info": {
+    "title": "Project Alexandria",
+    "version": "0.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {},
+  "warning": "fastapi is not installed; openapi export is stubbed"
+}

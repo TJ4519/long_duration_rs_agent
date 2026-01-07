@@ -1,0 +1,6 @@
+{
+  "properties": {},
+  "title": "ResearchOutput",
+  "type": "object",
+  "warning": "pydantic is not installed; schema export is stubbed"
+}
