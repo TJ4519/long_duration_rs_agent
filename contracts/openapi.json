@@ -5,5 +5,10 @@
   },
   "openapi": "3.0.0",
   "paths": {},
-  "warning": "fastapi is not installed; openapi export is stubbed"
+  "warning": "fastapi is not installed; openapi export is stubbed",
+  "x-meta": {
+    "note": "PR13 documentation-only update; no API surface changes.",
+    "data_contract_update": "Default retrieval metadata predicates and 3-year date scope documented.",
+    "role_addendum": "Principal-architect addendum documented in spec."
+  }
 }

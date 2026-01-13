@@ -14,3 +14,7 @@
 - 2025-09-27: Added compaction validation helpers and tests.
 - 2025-09-27: Added strategic override constraints and expiry handling.
 - 2025-09-27: Added demo CLI and eval harness.
+- 2025-09-27: Added user/data/eval/report spec documents and updated README index.
+- 2025-09-27: Clarified data contract chunking alternatives and updated PR13 review bundle.
+- 2025-09-27: Documented data contract default metadata predicates and 3-year date scope.
+- 2025-09-27: Added principal-architect role addendum clarifying ontology framing and enterprise constraints.

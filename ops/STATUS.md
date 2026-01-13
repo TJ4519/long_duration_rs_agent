@@ -14,3 +14,7 @@
 - Added dual-track compaction validation and tests.
 - Added strategic override constraints with expiry.
 - Added demo CLI and eval harness.
+- Added spec docs for user contract, data contract, eval gates, and run report template; linked in README.
+- Clarified chunking alternatives in data contract and updated PR13 review bundle.
+- Documented default retrieval metadata predicates and 3-year date scope in data contract.
+- Added principal-architect role addendum clarifying metadata ontology and enterprise constraints.
