@@ -1,3 +1,10 @@
 # project
 
 Initialized repository with starter documentation.
+
+## Spec index
+- `spec/USER_CONTRACT.md`
+- `spec/DATA_CONTRACT.md`
+- `spec/EVAL_GATES.md`
+- `spec/RUN_REPORT_TEMPLATE.md`
+- `spec/ROLE_ADDENDUM.md`
