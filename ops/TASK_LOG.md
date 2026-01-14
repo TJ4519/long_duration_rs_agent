@@ -18,3 +18,4 @@
 - 2025-09-27: Clarified data contract chunking alternatives and updated PR13 review bundle.
 - 2025-09-27: Documented data contract default metadata predicates and 3-year date scope.
 - 2025-09-27: Added principal-architect role addendum clarifying ontology framing and enterprise constraints.
+- 2026-01-14: Added summarization schema spec for compaction snapshot contract and deterministic narrative template.

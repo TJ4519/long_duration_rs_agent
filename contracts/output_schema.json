@@ -1,6 +1,6 @@
 {
   "properties": {},
-  "$comment": "PR13 documentation-only update; no output schema changes. Data contract defaults and role addendum updated.",
+  "$comment": "PR14 documentation-only update; no output schema changes. Summarization schema spec added; prior data/role notes retained.",
   "title": "ResearchOutput",
   "type": "object",
   "warning": "pydantic is not installed; schema export is stubbed"

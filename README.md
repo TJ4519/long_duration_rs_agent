@@ -8,3 +8,4 @@ Initialized repository with starter documentation.
 - `spec/EVAL_GATES.md`
 - `spec/RUN_REPORT_TEMPLATE.md`
 - `spec/ROLE_ADDENDUM.md`
+- `spec/SUMMARIZATION_SCHEMA.md`
