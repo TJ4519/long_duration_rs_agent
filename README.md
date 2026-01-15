@@ -9,3 +9,4 @@ Initialized repository with starter documentation.
 - `spec/RUN_REPORT_TEMPLATE.md`
 - `spec/ROLE_ADDENDUM.md`
 - `spec/SUMMARIZATION_SCHEMA.md`
+- `spec/EXTERNAL_MEMORY_ARCHITECTURE.md`
