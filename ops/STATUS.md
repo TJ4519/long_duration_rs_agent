@@ -19,3 +19,4 @@
 - Documented default retrieval metadata predicates and 3-year date scope in data contract.
 - Added principal-architect role addendum clarifying metadata ontology and enterprise constraints.
 - Added summarization schema spec defining compaction snapshot contract and deterministic narrative template.
+- Added external memory architecture spec (local Postgres + run-addressed filesystem, retention, authoritative stores, pointer semantics).

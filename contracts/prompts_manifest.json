@@ -1,9 +1,10 @@
 {
   "prompts": [],
   "meta": {
-    "note": "PR14 documentation-only update; no prompt changes.",
+    "note": "PR15 documentation-only update; no prompt changes.",
     "data_contract_update": "Default retrieval metadata predicates and 3-year date scope documented.",
     "role_addendum": "Principal-architect addendum documented in spec.",
-    "summarization_schema": "Compaction snapshot contract and deterministic narrative template documented in spec."
+    "summarization_schema": "Compaction snapshot contract and deterministic narrative template documented in spec.",
+    "external_memory_architecture": "External memory architecture documented (local Postgres + run-addressed filesystem, retention, authoritative stores, pointer semantics)."
   }
 }
