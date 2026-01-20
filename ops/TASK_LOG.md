@@ -20,3 +20,4 @@
 - 2025-09-27: Added principal-architect role addendum clarifying ontology framing and enterprise constraints.
 - 2026-01-14: Added summarization schema spec for compaction snapshot contract and deterministic narrative template.
 - 2026-01-14: Added external memory architecture spec (local Postgres + run-addressed filesystem, retention, authoritative stores, pointer semantics).
+- 2026-01-14: Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
