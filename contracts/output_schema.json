@@ -1,6 +1,6 @@
 {
   "properties": {},
-  "$comment": "PR15 documentation-only update; no output schema changes. External memory architecture documented; prior data/role/summarization notes retained.",
+  "$comment": "PR16 documentation-only update; no output schema changes. Multi-agent scope documented; prior data/role/summarization/external memory notes retained.",
   "title": "ResearchOutput",
   "type": "object",
   "warning": "pydantic is not installed; schema export is stubbed"

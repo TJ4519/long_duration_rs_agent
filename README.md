@@ -10,3 +10,4 @@ Initialized repository with starter documentation.
 - `spec/ROLE_ADDENDUM.md`
 - `spec/SUMMARIZATION_SCHEMA.md`
 - `spec/EXTERNAL_MEMORY_ARCHITECTURE.md`
+- `spec/MULTI_AGENT_SCOPE.md`
