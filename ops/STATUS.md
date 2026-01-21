@@ -23,3 +23,4 @@
 - Added runtime guardrails spec (tool I/O caps, zero-result guidance, loop guard, schema repair).
 - Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
 - Added cache stability optimization spec (immutable cached prefix, deterministic serialization, provider breakpoint guidance).
+- Added failure reflection system spec (structured failure records, selective retrieval-based integration, decay/revision).
