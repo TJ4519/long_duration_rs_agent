@@ -4,6 +4,7 @@
 - Prefer small diffs. No refactors unless necessary.
 - Everything must be reproducible: every step creates a Context Manifest.
 - Output must be schema-validated (JSON), or fail fast.
+- Runtime guardrails (tool I/O caps, loop detection, schema repair) are binding; see `spec/RUNTIME_GUARDRAILS.md`.
 - Evidence must be stored separately from narrative.
 - If unsure: add TODO + explanation, do not guess silently.
 

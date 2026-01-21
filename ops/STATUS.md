@@ -20,4 +20,5 @@
 - Added principal-architect role addendum clarifying metadata ontology and enterprise constraints.
 - Added summarization schema spec defining compaction snapshot contract and deterministic narrative template.
 - Added external memory architecture spec (local Postgres + run-addressed filesystem, retention, authoritative stores, pointer semantics).
+- Added runtime guardrails spec (tool I/O caps, zero-result guidance, loop guard, schema repair).
 - Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
