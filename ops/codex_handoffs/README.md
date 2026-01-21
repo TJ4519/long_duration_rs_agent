@@ -9,4 +9,4 @@ This folder stores **Codex builder-agent handoff notes** (planning + implementat
 
 ## Usage
 - Start a new session by reading the newest handoff first, then rehydrate from canonical runtime artifacts as directed by the handoff.
-
+- The most recent handoff is recorded in `ops/codex_handoffs/LATEST.md`.
