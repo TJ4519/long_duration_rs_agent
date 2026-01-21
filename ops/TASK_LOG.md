@@ -22,3 +22,4 @@
 - 2026-01-14: Added external memory architecture spec (local Postgres + run-addressed filesystem, retention, authoritative stores, pointer semantics).
 - 2026-01-20: Added runtime guardrails spec (tool I/O caps, zero-result guidance, loop guard, schema repair).
 - 2026-01-14: Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
+- 2026-01-21: Added cache stability optimization spec (immutable cached prefix, deterministic serialization, provider breakpoint guidance).

@@ -12,3 +12,4 @@ Initialized repository with starter documentation.
 - `spec/EXTERNAL_MEMORY_ARCHITECTURE.md`
 - `spec/RUNTIME_GUARDRAILS.md`
 - `spec/MULTI_AGENT_SCOPE.md`
+- `spec/CACHE_STABILITY_OPTIMIZATION.md`
