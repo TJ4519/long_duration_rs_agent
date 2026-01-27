@@ -27,3 +27,4 @@
 - Added context observability audit spec (manifest-by-default, fault-triggered prompt snapshots, inclusion/exclusion logs).
 - Added failure reflection system spec (structured failure records, selective retrieval-based integration, decay/revision).
 - Added architecture ceiling test spec (Bitter Lesson check, artificial ceiling inventory, mitigation rules).
+- Deduplicated contracts metadata keys after merge conflict resolution (openapi/prompts/output schema notes).
