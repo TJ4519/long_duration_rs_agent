@@ -7,10 +7,7 @@
   "paths": {},
   "warning": "fastapi is not installed; openapi export is stubbed",
   "x-meta": {
-    "note": "PR22 documentation-only update; no API surface changes.",
-    "note": "PR21 documentation-only update; no API surface changes.",
-    "note": "PR20 documentation-only update; no API surface changes.",
-    "note": "PR19 documentation-only update; no API surface changes.",
+    "note": "PR23 documentation-only update; no API surface changes.",
     "data_contract_update": "Default retrieval metadata predicates and 3-year date scope documented.",
     "role_addendum": "Principal-architect addendum documented in spec.",
     "summarization_schema": "Compaction snapshot contract and deterministic narrative template documented in spec.",
@@ -19,7 +16,8 @@
     "runtime_guardrails": "Runtime guardrails documented (tool I/O caps, zero-result guidance, loop guard, schema repair).",
     "cache_stability": "Cache stability optimization documented (immutable cached prefix, deterministic serialization, provider breakpoints).",
     "failure_reflection": "Failure reflection system documented (signals, record schema, retrieval-based integration, decay/revision).",
-    "architecture_ceiling_test": "Architecture ceiling test documented (Bitter Lesson audit, artificial ceiling inventory, mitigation rules)."
-    "failure_reflection": "Failure reflection system documented (signals, record schema, retrieval-based integration, decay/revision)."
+    "architecture_ceiling_test": "Architecture ceiling test documented (Bitter Lesson audit, artificial ceiling inventory, mitigation rules).",
+    "context_observability": "Context observability audit documented (manifest-by-default, fault-triggered prompt snapshots, inclusion/exclusion logs).",
+    "demystifying_agentic_memory": "Demystifying agentic memory documented (non-technical explanation workflow)."
   }
 }
