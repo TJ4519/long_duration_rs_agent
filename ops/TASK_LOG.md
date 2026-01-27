@@ -23,3 +23,5 @@
 - 2026-01-20: Added runtime guardrails spec (tool I/O caps, zero-result guidance, loop guard, schema repair).
 - 2026-01-14: Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
 - 2026-01-21: Added cache stability optimization spec (immutable cached prefix, deterministic serialization, provider breakpoint guidance).
+- 2026-01-21: Added failure reflection system spec (failure signals, record schema, integration rules, decay/revision).
+- 2026-01-21: Added architecture ceiling test spec (Bitter Lesson check, artificial ceiling inventory, mitigation rules).
