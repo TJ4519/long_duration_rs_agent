@@ -23,3 +23,4 @@
 - Added runtime guardrails spec (tool I/O caps, zero-result guidance, loop guard, schema repair).
 - Added multi-agent scope design spec (optional planner/executor split, structured handoff, isolation rules).
 - Added cache stability optimization spec (immutable cached prefix, deterministic serialization, provider breakpoint guidance).
+- Added context observability audit spec (manifest-by-default, fault-triggered prompt snapshots, inclusion/exclusion logs).

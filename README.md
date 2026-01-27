@@ -13,3 +13,4 @@ Initialized repository with starter documentation.
 - `spec/RUNTIME_GUARDRAILS.md`
 - `spec/MULTI_AGENT_SCOPE.md`
 - `spec/CACHE_STABILITY_OPTIMIZATION.md`
+- `spec/CONTEXT_OBSERVABILITY_AUDIT.md`
