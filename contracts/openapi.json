@@ -7,6 +7,7 @@
   "paths": {},
   "warning": "fastapi is not installed; openapi export is stubbed",
   "x-meta": {
+    "note": "PR22 documentation-only update; no API surface changes.",
     "note": "PR21 documentation-only update; no API surface changes.",
     "note": "PR20 documentation-only update; no API surface changes.",
     "note": "PR19 documentation-only update; no API surface changes.",
