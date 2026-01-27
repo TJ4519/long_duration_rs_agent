@@ -7,6 +7,7 @@
   "paths": {},
   "warning": "fastapi is not installed; openapi export is stubbed",
   "x-meta": {
+    "note": "PR21 documentation-only update; no API surface changes.",
     "note": "PR20 documentation-only update; no API surface changes.",
     "note": "PR19 documentation-only update; no API surface changes.",
     "data_contract_update": "Default retrieval metadata predicates and 3-year date scope documented.",
