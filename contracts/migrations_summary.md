@@ -4,3 +4,4 @@
 
 - PR16: Documentation-only update; no migration changes (multi-agent scope documented; prior notes retained).
 - PR18: Documentation-only update; no migration changes (cache stability documented; prior notes retained).
+- PR22: Documentation-only update; no migration changes (demystifying agentic memory documented; prior notes retained).
