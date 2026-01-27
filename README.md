@@ -14,3 +14,4 @@ Initialized repository with starter documentation.
 - `spec/MULTI_AGENT_SCOPE.md`
 - `spec/CACHE_STABILITY_OPTIMIZATION.md`
 - `spec/FAILURE_REFLECTION_SYSTEM.md`
+- `spec/ARCHITECTURE_CEILING_TEST.md`

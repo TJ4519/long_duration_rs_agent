@@ -1,5 +1,6 @@
 {
   "properties": {},
+  "$comment": "PR20 documentation-only update; no output schema changes. Architecture ceiling test documented; prior data/role/summarization/external memory/multi-agent/guardrails/cache stability/failure reflection notes retained.",
   "$comment": "PR19 documentation-only update; no output schema changes. Failure reflection documented; prior data/role/summarization/external memory/multi-agent/guardrails/cache stability notes retained.",
   "title": "ResearchOutput",
   "type": "object",
