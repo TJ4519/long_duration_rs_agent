@@ -5,6 +5,17 @@ You review *contracts and safety*, not every line of implementation.
 
 If contracts are correct and tests cover behavior, you can merge confidently.
 
+## 1.1) Machine-enforced review bundle metadata (CI gate)
+Every PR must add/update a review bundle at:
+- `review/PR_<NN>_REVIEW_BUNDLE.md`
+
+The review bundle must start with YAML front matter so CI can enforce minimal governance:
+- `risk`: `auto|low|medium|high`
+- `spec_refs`: list of file paths that define the contract/policy this PR follows
+- `rollback.strategy` + `rollback.notes`
+
+MVP intent: keep this small and typed so `BUILDER_USER` is not the merge bottleneck.
+
 ## 2) Canonical review surface (read fully every PR)
 - review/PR_<NN>_REVIEW_BUNDLE.md
 - contracts/openapi.json

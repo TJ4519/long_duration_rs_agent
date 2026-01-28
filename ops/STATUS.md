@@ -28,3 +28,4 @@
 - Added failure reflection system spec (structured failure records, selective retrieval-based integration, decay/revision).
 - Added architecture ceiling test spec (Bitter Lesson check, artificial ceiling inventory, mitigation rules).
 - Deduplicated contracts metadata keys after merge conflict resolution (openapi/prompts/output schema notes).
+- Added GitHub Actions PR gates enforcing review bundle metadata and contracts JSON validation.

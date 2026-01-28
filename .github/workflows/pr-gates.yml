@@ -1,0 +1,38 @@
+name: PR Gates
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate PR review bundle
+        env:
+          GITHUB_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          python scripts/validate_pr_bundle.py --pr-number "${{ github.event.pull_request.number }}"
+
+      - name: Validate contracts JSON (no duplicates)
+        run: |
+          python scripts/validate_contracts_json.py
+
+      - name: Compile (syntax check)
+        run: |
+          python -m compileall app scripts
+

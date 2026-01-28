@@ -28,3 +28,4 @@
 - 2026-01-21: Added failure reflection system spec (failure signals, record schema, integration rules, decay/revision).
 - 2026-01-21: Added architecture ceiling test spec (Bitter Lesson check, artificial ceiling inventory, mitigation rules).
 - 2026-01-27: Deduplicated contracts metadata keys after merge conflict resolution (openapi/prompts/output schema notes).
+- 2026-01-28: Added GitHub Actions PR gates enforcing review bundle metadata and contracts JSON validation.

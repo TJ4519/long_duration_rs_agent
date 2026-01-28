@@ -9,4 +9,4 @@
 - PR19: Documentation-only update; no migration changes (failure reflection documented; prior notes retained).
 - PR20: Documentation-only update; no migration changes (architecture ceiling test documented; prior notes retained).
 - PR23: Documentation-only update; no migration changes (contracts metadata deduplicated; prior notes retained).
-
+- PR24: No migration changes (CI PR gates + review bundle metadata enforcement; prior notes retained).
